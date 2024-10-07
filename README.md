@@ -43,30 +43,55 @@ Developed by: ANUVIND KRISHNA.K
 RegisterNumber: 212223080004
 
 import pandas as pd
+
 data = pd.read_csv("Employee.csv")
+
 data
+
 data.head()
+
 data.info()
+
 data.isnull().sum()
+
 data["left"].value_counts
+
 from sklearn.preprocessing import LabelEncoder
+
 le= LabelEncoder()
 
+
+
 data["salary"]=le.fit_transform(data["salary"])
+
 data.head()
+
 x= data[["satisfaction_level","last_evaluation","number_
+
 x.head()
+
 y=data["left"]
+
 from sklearn.model_selection import train_test_split
+
 x_train,x_test,y_train,y_test = train_test_split(x,y,te
+
 from sklearn.tree import DecisionTreeClassifier
+
 dt = DecisionTreeClassifier(criterion="entropy")
+
 dt.fit(x_train,y_train)
+
 y_pred = dt.predict(x_test)
+
 from sklearn import metrics
+
 accuracy = metrics.accuracy_score(y_test,y_pred)
+
 accuracy
+
 dt.predict([[0.5,0.8,9,260,6,0,1,2]])
+
 
 */
 
